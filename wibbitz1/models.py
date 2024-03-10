@@ -1,5 +1,6 @@
 from django.db import models
 
+
 COMPANY_SIZE_CHOICES = [
     ("1", "1-10"),
     ("2", "11-50"),
@@ -24,12 +25,13 @@ COUNTRY_CHOICES = [
 ]
 
 class Customer(models.Model):
-    image = models.FileField(upload_to="media/")
+    #  business = models.ForeignKey("wibbitz1.product", on_delete=models.CASCADE)
+     image = models.FileField(upload_to="media/")
 
-    class Meta:
+class Meta:
         ordering = ["id"]
 
-    def __str__(self):
+def __str__(self):
         return str(self.image)
 
 
@@ -106,6 +108,8 @@ class Business(models.Model):
     description = models.TextField(max_length=255)
     image = models.ImageField(upload_to="business/")
     background = models.CharField(max_length=10)
+    name = models.CharField(max_length=50,blank=True)
+    hero_image = models.FileField(upload_to="media_one/",blank=True)
 
     class Meta:
         ordering = ["id"]
@@ -153,3 +157,11 @@ class Img (models.Model):
 
 class  Latest_customer (models.Model):
     image = models.FileField(upload_to="media10/")
+
+
+
+class Logos(models.Model):
+     image = models.FileField(upload_to="media/")
+
+class Meta:
+        ordering = ["id"]

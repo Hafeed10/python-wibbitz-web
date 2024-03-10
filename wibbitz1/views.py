@@ -1,10 +1,11 @@
 import json 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404
 from wibbitz1.models import Customer, Featured
 from django.db import IntegrityError
-from .models import Subscribe, Videoblog, Videoresources, Business , Marketing, Testimonial , Contact, Img, Latest_customer
+from .models import *
 from django.urls import reverse
 from django.http.response import HttpResponse
+
 # from wibbitz1.forms import ContactForm
 
 
@@ -22,6 +23,7 @@ def index(request):
     contacts = Contact.objects.all()
     imgs = Img.objects.all()
     
+    
     # form = ContactForm()
     
     context = {
@@ -37,7 +39,7 @@ def index(request):
         # "form": form
         "imgs": imgs,
        "latest_customers": latest_customers,
-        
+       
     }
    
     return render(request, 'index.html', context=context)
@@ -100,3 +102,17 @@ def contact(request):
             }
 
         return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+
+def product(request, pk):
+    business = get_object_or_404(Business, pk=pk)
+    
+    customer = Customer.objects.last()
+     # Fetch all logos related to the business or adjust the query as needed
+     # Fetch all logos related to the business or adjust the query as needed
+
+    context = {
+        'business': business,
+        'customer': customer,
+    }
+    return render(request, 'product.html', context)

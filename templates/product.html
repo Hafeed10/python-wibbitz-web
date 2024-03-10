@@ -1,0 +1,37 @@
+
+       {% extends "base.html" %}
+       {% load static %}
+       {% block content %}
+      
+       <section id="product" style="background-color:{{business.background}};">
+        <section class="wrapper">
+            <a href="#" class="logo-badge">
+                <img src="{{business.business_background.url}}" alt="" />
+                Wavi
+            </a>
+            <h1>{{business.name}}</h1>
+            <p>{{business.description}}</p>
+            <a href="#" class="button">Get in Touch</a>
+            <img src="{{business.hero_image.url}}" alt="Hero Image" class="hero" />
+        </section>
+    </section>
+    <section id="inner-page-brands">
+        <section class="wrapper">
+            <h6>Leading brands trust Wibbitz for video</h6>
+            <ul>
+               
+                
+                <li><a href="#"><img src="{% static 'images/logo-taboola.svg' %}" alt="logo-birchbox" /></a></li>
+                <li><a href="#"><img src="{% static 'images/logo-tmz.svg' %}" alt="logo-birchbox" /></a></li>
+                <li><a href="#"><img src="{% static 'images/logo-hubspot.svg' %}" alt="logo-birchbox" /></a></li>
+                <li><a href="#"><img src="{% static 'images/logo-nbc.svg' %}" alt="logo-birchbox" /></a></li>
+                <li><a href="#"><img src="{% static 'images/logo-reuters.svg' %}" alt="logo-birchbox" /></a></li>
+                <li><a href="#"><img src="{% static 'images/logo-bloomberg.svg' %}" alt="logo-birchbox" /></a></li>
+               
+            </ul>
+        </section>
+    </section>
+        {% endblock %}
+
+      
+   

@@ -1,8 +1,7 @@
 # admin.py
 
 from django.contrib import admin
-from .models import Customer, Subscribe, Featured, Videoblog, Testimonial, Marketing, Business, Videoresources, Contact, Img, Latest_customer
-
+from .models import *
 
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ['id', 'image']  
@@ -50,6 +49,9 @@ admin.site.register(Contact)
 admin.site.register(Img)
 
 admin.site.register( Latest_customer)
+
+admin.site.register(Logos)
+
 
 
 
